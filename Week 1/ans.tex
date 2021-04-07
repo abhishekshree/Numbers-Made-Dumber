@@ -1,0 +1,305 @@
+\documentclass[12pt]{amsart}
+
+\addtolength{\hoffset}{-2.25cm}
+\addtolength{\textwidth}{4.5cm}
+\addtolength{\voffset}{-2.5cm}
+\addtolength{\textheight}{5cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{15pt}
+
+\usepackage[dvipsnames]{xcolor}
+
+
+\renewcommand{\baselinestretch}{1.5} 
+\definecolor{gray}{HTML}{C7C8C9}
+
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks = true, linkcolor = black, citecolor = black, final]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{ marvosym }
+\usepackage{wasysym}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\sech}{sech}
+
+
+\setlength{\parindent}{0in}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+    
+    {\scshape \large  Assignment 1}
+\end{center}
+{\scshape Numbers Made Dumber} \hfill 
+\hfill {\scshape Abhishek Shree}
+\linebreak
+{\scshape Project \#13}  \hfill {\scshape Roll: 200028}
+
+
+\smallskip
+
+\hrule
+
+\bigskip
+% First start
+\paragraph*{1} Prove that $\frac{21n+4}{14n+3}$ is irreducible for every natural n.
+
+\bigskip
+\textbf{Sol.}
+For the fraction to be irreducible, $gcd(21n+4, 14n+3) = 1$, or the numerator and denominator are \textbf{coprimes}.
+
+\textit{Lemma.} This follows directly from Euclidean Algorithm, \[ \gcd{(a,b)} = \gcd{(a-b, b)} \text{ where } a>b \text{ (say)} \]
+
+\begin{proof}
+    \begin{align*}
+        \gcd{(21n+4, 14n+3)} &= \gcd{(7n+1, 14n+3)}
+        \\ &= \gcd{(14n+3, 7n+1)} && \text{as } 14n+3 > 7n+1 \text{ } \forall \text{ } n \in \mathbb{N}
+        \\ &= \gcd{(7n+2, 7n+1)}
+        \\ &= \gcd{(1, 7n+1)}
+        \\ &= 1 && \qedhere
+    \end{align*}
+\end{proof}
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% First end
+
+% Second start
+\paragraph*{2.} Find all integers n such that $n^2 + 2n + 2$ divides $n^3 + 4n^2 + 4n - 14$.
+
+\bigskip
+\textbf{Sol.}
+Upon factorisation, we get
+\begin{center}
+    $n^3 + 4n^2 + 4n - 14$ = $(n^2 + 2n + 2)(n+2) - (2n+18)$
+\end{center}
+Here, the quotient is $(n+2)$ and the remainder is $(-2n-18).$
+
+If, $-2n-18$ is not a remainder, i.e. the two polynomials are \textbf{divisible}, it should contradict Theorem 1.2.1 (from the notes), i.e. $n$ lies in the range
+\begin{align*}
+    &\left|{-2n-18}\right|\geq \left|{n^2+2n+2} \right| \text{ or } \left|\frac{2n+18}{n^2+2n+2}\right|\geq1 \\
+    &\implies \frac{2n+18}{n^2+2n+2}\geq1 \text{ or } \frac{2n+18}{n^2+2n+2}\leq-1 \\ 
+    \bigskip
+    &\implies n^2 \leq 16 \text{ or } n^2+4n+20\leq0 \\
+    &\implies n \in [-4, 4]
+\end{align*}
+\[\]
+There is also a possibilty that $-2n-18=0 \implies n=-9 $
+
+All the acceptable values of $n$ are \boxed{$\{-9, -4, -2, -1, 0, 1, 4\}$} as other values in the range violate the condition $r \ge b$ (easy to see for $n \ge 0 $, say 2 or 3).
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Second end
+
+% Third start
+\paragraph*{3.} For natural numbers a, n, m prove that $\gcd\left(a^{m}-1,a^{n}-1\right)=a^{\gcd(m,n)}-1$.
+
+\bigskip
+\textbf{Sol.}
+Let $b = \gcd{(a^{m}-1,a^{n}-1)}$
+
+$
+\therefore a^m = 1+kb \text{ and } a^n = 1+jb \text{ for some j and k }
+$
+
+Also, $gcd{(m, n)}=mx+ny$ by Bezout’s identity. So,
+\begin{align*}
+    a^{\gcd(m,n)}-1 &= a^{mx+ny}-1  \\
+                    &= a^{mx}a^{ny} - 1 \\
+                    &= (1+kb)^x(1+jb)^y - 1 \\
+                    &= (\hspace{1cm}  ...  \hspace{1cm})b
+\end{align*}
+Hence, $b$ divides $a^{\gcd(m,n)}-1$. We also know that both $m$ and $n$ are divisible by $\gcd{(m, n)}$, say $m = \gcd{(m,n)}c$ then
+
+$a^m - 1 = a^{\gcd{(m,n)}c} - 1^c \implies a^m-1 = (a^{\gcd{(m,n)}} - 1)(\hspace{1cm}  ...  \hspace{1cm}) $, where ... is some constant.
+
+Hence,\underline{ $(a^{\gcd{(m,n)}} - 1) \text{ divides } a^{m}-1$ }, similarly $a^{n}-1$.
+
+\smallskip
+
+$(a^{\gcd{(m,n)}} - 1)$ divides both $a^{m}-1$ and $a^{n}-1$, therefore it must divide their gcd, i.e. $b$.
+
+As, $b$ divides $a^{\gcd(m,n)}-1$ and $a^{\gcd(m,n)}-1$ divides $b$, this implies they both are equal. 
+
+\begin{center}
+    $b=a^{\gcd(m,n)}-1$ \\ OR \\
+    $\gcd\left(a^{m}-1,a^{n}-1\right)=a^{\gcd(m,n)}-1$ \hspace{1.69cm} Proved!
+\end{center}
+
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Third end
+
+% Fourth start
+\paragraph*{4.} Let the integers $a_n$ and $b_n$ be defined by the relationship
+$$a_n+b_n\sqrt{2} = (1 +\sqrt{2})^n$$
+for all integers $n \ge 1$.  Prove that $\gcd{(a_n, b_n)} = 1$ for all integers $n \ge 1$.
+
+\bigskip
+\textbf{Sol.}
+By the Principle of Mathematical Induction,
+
+For $n=1$: $a_1=1$ and $b_1=1$ 
+$\hspace{2cm}\therefore \gcd{(a_1, b_1)}=1$ 
+
+Let $a_k + b_k\sqrt{2} = (1+\sqrt{2})^k$ such that $\gcd{(a_k, b_k)} = 1$ be true for $n=k$.
+
+For $n=k+1$:
+\begin{align*}
+    a_{k+1} + b_{k+1}\sqrt{2} &= (1+\sqrt{2})^{k+1} \\
+    &= (1+\sqrt{2})(1+\sqrt{2})^k \\
+    &= (1+\sqrt{2})(a_k + b_k\sqrt{2}) \\
+    &= (a_k + 2b_k) + (a_k + b_k)\sqrt{2} && \text{(upon rearranging)}
+\end{align*}
+Upon comparing RHS and LHS we get,
+\begin{center}    
+    $a_{k+1} = a_k+2b_k$ and $ b_{k+1} = a_k+b_k $
+\end{center}
+
+Now,
+\begin{align*}
+    \gcd{(a_{k+1}, b_{k+1})} &= \gcd{(a_k+2b_k, a_k+b_k)} \\
+                             &= \gcd{(b_k, a_k+b_k)} \\
+                             &= \gcd{(b_k, a_k)}  && \text{(as assumed above)} \\
+                             &= 1
+\end{align*}
+\[\]
+Hence the relation holds for $n=k+1$ given $n=k$.
+
+Therefore, we conclude that relationship hold for all integers $n \ge 1.$
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Fourth end
+
+% Fifth start
+\paragraph*{5.} If $p$ is an odd prime, and $a$, $b$ are relatively prime positive integers, prove that $$\gcd{\left(a+b,\frac{a^p+b^p}{a+b}\right)} = 1 \text{ or } p.$$
+
+\bigskip
+\textbf{Sol.}
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Fifth end
+
+% Sixth start
+\paragraph*{6.} If $a|bc$ and $\gcd{(a, b)} = 1$, prove that $a|c$.
+
+\bigskip
+\textbf{Sol.}
+Constructing a Linear Diophantine Equation, $ ax+by=1 $, which also means that 
+
+$$ cax + cby = c $$
+We are given that a divides bc, a also divides ac (trivial).
+
+Let $bc = ap$ for some $p$. The equation converts to, $ cax + apy = c $ or $ a(cx + py) = c$ where $(cx + py) \in \mathbb{Z}$.
+
+Hence, a divides c.
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Sixth end
+
+% Seventh start
+\paragraph*{7.} Prove that the expression 
+$$\frac{\gcd{(m, n)}}{n}\binom{n}{m}$$ 
+is an integer for all pairs of integer $n \ge m \ge 1$.
+
+\bigskip
+\textbf{Sol.}
+Let $\gcd{(m, n)} = mx+ny$ for some integers $x, y$.
+\begin{align*}
+    \frac{\gcd{(m, n)}}{n}\binom{n}{m} &= \frac{(mx+ny)}{n}\binom{n}{m} \\
+    &= \frac{xm}{n}\binom{n}{m} + y\binom{n}{m} \\
+    &= x\binom{n-1}{m-1} + y\binom{n}{m} \in \mathbb{Z} && Proved.
+\end{align*}
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Seventh end
+
+% Eighth start
+\paragraph*{8.} Let $ n, p > 1 $ be positive integers and $ p $ be a prime.  Given that $ n|p-1 $ and $ p|n^3-1 $, prove that $ 4p-3 $ is a perfect square.
+
+\bigskip
+\textbf{Sol.}
+As $n$ divides $(p-1)$ and $p$ divides $(n^3-1)$, we can write $(p-1) = nx \implies p = (nx+1)$ and $(n^3-1) = py$ for $x \text{ and } y \in \mathbb{Z}$.
+
+Also $(n^3-1) = (n-1)(n^2+n+1)$, but as $p=nx+1$ it implies that $p \ge n+1$, hence $p$ cannot divide $n-1  (<p)$ $\implies$ it is the $(n^2+n+1)$ term that is divisible by p.
+\begin{align*}
+    \therefore \text{ } n^2+n+1 &\ge p && \text{(1)}\\ 
+                                &\ge nx+1 
+    \implies \boxed{x \le n+1}
+\end{align*}
+if $x < n+1$, then $nx+1=p < n(n+1) + 1 = n^2+n+1$ which cannot be true as $p$ divides $n^2+n+1$ (violates inequality 1).
+
+$\therefore x=n+1 $ is the only acceptable solution here.
+Putting $x=n+1$ in $p$ we get,
+\begin{center}
+    $p = nx + 1 = n(n+1)+1 = n^2+n+1$   
+\end{center}
+\begin{align*}
+    \therefore 4p-3 &= 4(n^2+n+1) - 3 \\
+                    &= (2n+1)^2 && \text{ which is a perfect square.}
+\end{align*}
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Eighth end
+
+% Ninth start
+\paragraph*{9.} Find all pairs of positive integers $ a, b $ such that
+$$ \frac{a^2+b}{b^2-a} \text{ and } \frac{b^2+a}{a^2-b} $$ are both integers.
+
+\bigskip
+\textbf{Sol.}
+If such integers exist, then
+\begin{center}
+    $(a^2+b)\ge(b^2-a)$ and $(b^2+a) \ge (a^2-b)$ \\
+    $(a+b)(a-b+1) \ge0$ and $(a+b)(b-a+1) \ge0$ \\
+    $\implies \boxed{a \ge b-1 \text{ and } b \ge a-1}$
+\end{center}
+This inequality holds only when $a=b$ or $a=b-1$ or $b=a-1$.
+
+\paragraph*{\textbf{Case 1:}} If $a=b$, then 
+$$\frac{a^2+b}{b^2-a} =\frac{b^2+a}{a^2-b} = \frac{a^2+a}{a^2-a} = \frac{a+1}{a-1} = 1+ \frac{2}{a-1} \in \mathbb{Z}$$
+Therefore $a=2$ or $a=3$ are the only solution here.
+
+\paragraph*{\textbf{Case 2:}} If $a=b-1$,
+$$\frac{b^2+a}{a^2-b} = \frac{b^2+b-1}{(b-1)^2-b}=\frac{b^2+b-1}{b^2-3b+1}=1+ \frac{4b-2}{b^2-3b+1}$$
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Ninth end
+
+% Tenth start
+\paragraph*{10.} For $ m>1 $, it can be proven that the integer sequence $f_m(n) = \gcd{(n+m, mn+ 1)} $ has a fundamental period $ T_m $.  In other words,$$ \forall \text{ } n \in \mathbb{N} ,  f_m(n+T_m) =f_m(n) $$.Find an expression for $T_m$ in terms of $ m $ .
+
+\bigskip
+\textbf{Sol.}
+
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Tenth end
+
+
+\end{document}
