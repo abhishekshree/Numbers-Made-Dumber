@@ -190,8 +190,30 @@ Therefore, we conclude that relationship hold for all integers $n \ge 1.$
 
 \bigskip
 \textbf{Sol.}
+ 
+Here,
+$$ 
+\boxed{
+    \frac{a^p+b^p}{a+b} = a^{p-1}b^0 - a^{p-2}b^1 +\dotsc - a^1b^{p-2} + a^0b^{p-1}
+} \hspace{1cm} (A)
+$$
+\linebreak
+On dividing $\frac{a^p+b^p}{a+b}$ by $a+b$ we get,
+$$
+a^{p-1}b^0 - a^{p-2}b^1 +\dotsc - a^1b^{p-2} + a^0b^{p-1} = (a+b)(a^{p-2} - 2a^{p-3}b^1 +\dotsc) + pb^{p-1}
+$$
+The remainder = $pb^{p-1}$, but if we reverse the RHS in (A) and then divide we end up getting
+$$
+b^{p-1}a^0 - b^{p-2}a^1 +\dotsc - b^1a^{p-2} + b^0a^{p-1} = (a+b)(b^{p-2} - 2b^{p-3}a^1 +\dotsc) + pa^{p-1}
+$$
+So if we assume that $d = \gcd{\left(a+b,\frac{a^p+b^p}{a+b}\right)}$, then d must divide both $pb^{p-1}$ and $pa^{p-1}$.
+
+As $\gcd{(a, b)} = 1 \implies \gcd{(a^{p-1}, b^{p - 1})} = 1$
+
+As $a^p \text{ and } b^p$ are coprimes, d needs to either be 1 or p to divide both $pa^{p-1} \text{ and } pb^{p-1}$ simultaneously.
 
 
+Hence, $\gcd{\left(a+b,\frac{a^p+b^p}{a+b}\right)} = 1$ or $p$ 
 \par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
 \smallskip
 % Fifth end
@@ -275,8 +297,10 @@ If such integers exist, then
     $(a+b)(a-b+1) \ge0$ and $(a+b)(b-a+1) \ge0$ \\
     $\implies \boxed{a \ge b-1 \text{ and } b \ge a-1}$
 \end{center}
-This inequality holds only when $a=b$ or $a=b-1$ or $b=a-1$.
+This inequality holds only when $a=b$ 
+or $a=b-1$ or $a=b+1$.
 
+For any other $a$, say $a = b+k; k > 1 \text { or } k < -1  $ it will satisfy only one of the two inequalities. Hence, no other solutions are possible.
 \paragraph*{\textbf{Case 1:}} If $a=b$, then 
 $$\frac{a^2+b}{b^2-a} =\frac{b^2+a}{a^2-b} = \frac{a^2+a}{a^2-a} = \frac{a+1}{a-1} = 1+ \frac{2}{a-1} \in \mathbb{Z}$$
 Therefore $a=2$ or $a=3$ are the only solution here.
@@ -284,22 +308,59 @@ Therefore $a=2$ or $a=3$ are the only solution here.
 \paragraph*{\textbf{Case 2:}} If $a=b-1$,
 $$\frac{b^2+a}{a^2-b} = \frac{b^2+b-1}{(b-1)^2-b}=\frac{b^2+b-1}{b^2-3b+1}=1+ \frac{4b-2}{b^2-3b+1}$$
 
+For this expression to be an integer,
+$$
+4b-2 \ge b^2-3b+1 \implies
+b^2-7b+3 \le 0 \implies
+b \in \{1,2,3,4,5,6\} 
+$$
+
+If $b = 1$,then $a=0 \notin \mathbb{Z}^+$. Hence, $b=1$ is not a solution.
+$b = \{4,5,6\}$ does not make the whole term ineger.
+So the only possible solutions here are $b=\{2, 3\}$
+
+\paragraph*{\textbf{Case 3:}} If $a=b+1$,
+$$\frac{a^2+b}{b^2-a} = \frac{a^2+a-1}{(a-1)^2-a}=\frac{a^2+a-1}{a^2-3a+1}=1+ \frac{4a-2}{a^2-3a+1}$$
+
+For this expression to be an integer,
+$$
+4a-2 \ge a^2-3a+1 \implies
+a^2-7a+3 \le 0 \implies
+a \in \{1,2,3,4,5,6\} 
+$$
+
+If $a = 1$,then $b=0 \notin \mathbb{Z}^+$. Hence, $a=1$ is not a solution.
+$a = \{4,5,6\}$ does not make the whole term ineger.
+So the only possible solutions here are $a=\{2, 3\}$
+
+Hence the total possible $(a,b) = \{ (2,2), (3,3), (1,2), (2,1), (2, 3), (3,2)  \}$
 
 \par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
 \smallskip
 % Ninth end
 
 % Tenth start
-\paragraph*{10.} For $ m>1 $, it can be proven that the integer sequence $f_m(n) = \gcd{(n+m, mn+ 1)} $ has a fundamental period $ T_m $.  In other words,$$ \forall \text{ } n \in \mathbb{N} ,  f_m(n+T_m) =f_m(n) $$.Find an expression for $T_m$ in terms of $ m $ .
+\paragraph*{10.} For $ m>1 $, it can be proven that the integer sequence $f_m(n) = \gcd{(n+m, mn+ 1)} $ has a fundamental period $ T_m $.  In other words,$$ \forall \text{ } n \in \mathbb{N} ,  f_m(n+T_m) =f_m(n) $$Find an expression for $T_m$ in terms of $ m $.
 
 \bigskip
 \textbf{Sol.}
+By applying the Euclidean Algorithm, we get
+\begin{align*}
+    f_m(n) &= \gcd{(n+m, mn+ 1)} \\
+           &= \gcd{(n+m, m(m+n)-m^2+1)} \\
+           &= \gcd{(n+m, -m^2+1)} && \because \gcd{(a, b)} = \gcd{(a, b+at)}
+\end{align*}
+This expression $f_m(n) = \gcd{(n+m, 1-m^2)}$ is nice.
+To show $f$ is periodic we can use this.
 
+Let $f_m(n+x) = f_m(n)$ for some $x$, i.e.
+$$
+\gcd{(m+n+x, 1-m^2)} = \gcd{(m+n, 1-m^2)}
+\implies x = (1-m^2)k 
+$$
 
+$\therefore$ The fundamental period of the function is $\boxed{T_m = |1-m^2|}$.
 
-\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
-\smallskip
 % Tenth end
-
 
 \end{document}
