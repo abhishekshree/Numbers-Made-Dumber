@@ -1,0 +1,110 @@
+\documentclass[12pt,oneside,reqno]{amsart}
+
+\addtolength{\hoffset}{-2.25cm}
+\addtolength{\textwidth}{4.5cm}
+\addtolength{\voffset}{-2.5cm}
+\addtolength{\textheight}{5cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{15pt}
+
+\usepackage[dvipsnames]{xcolor}
+
+
+\renewcommand{\baselinestretch}{1.5} 
+\definecolor{gray}{HTML}{C7C8C9}
+
+\usepackage{setspace}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks = true, linkcolor = black, citecolor = black, final]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{ marvosym }
+\usepackage{wasysym}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\sech}{sech}
+
+
+\setlength{\parindent}{0in}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+    
+    {\scshape \large  Assignment 3}
+\end{center}
+{\scshape Numbers Made Dumber} \hfill 
+\hfill {\scshape Abhishek Shree}
+\linebreak
+{\scshape Project \#13}  \hfill {\scshape Roll: 200028}
+
+
+\smallskip
+
+\hrule
+
+\bigskip
+% First start
+\paragraph*{1} Find the solution to the linear congruence 
+\begin{gather*}
+    x \equiv 3 \mod 5 \\
+    x \equiv 4 \mod 11
+\end{gather*}
+
+\textbf{Sol.}
+ $$N = 5*11 = 55
+ \implies N_1 = 11, N_2 = 5$$
+Therefore by Chinese Remainder Theorem, a particular solution would be,
+$$ x_1 = 3*11*1 + 4*5*5 = 108$$
+General solution would be,
+$$x \equiv 108 \mod 55 \text{ which would be } \boxed{x \equiv 48 \mod 55}$$
+
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% First end
+
+% Second start
+\paragraph*{2.} For a positive integer p, define the positive integer n to be p-safe if n differs in absolutevalue by more than 2 from all multiples of p.  For example, the set of 10-safe numbers is $3, 4, 5, 6, 7, 13, 14, 15, 16, 17, 23...$ Find the number of positive integers less than or equal to 10,000 which are simultaneously 7-safe, 11-safe, and 13-safe.
+
+\bigskip
+\textbf{Sol.}
+$x$ is 7-safe if, $x\equiv 3 \mod 7$ or $x\equiv 4 \mod 7$ i.e. 2 residues
+
+Similarly, 11-safe numbers will have 6 residues (3, 4, 5, 6, 7, 8) and 13-safe numbers will have 8 residues (3, 4, 5, 6, 7, 8, 9, 10).
+
+By Chinese Remainder Theorem, we will have a total of 96 residues (2*6*8) $\mod 1001$
+
+Total numbers $\le10010$ satisfying this would be 960.
+
+Removing 10006 and 10007 (values $ > 10000 $), we will have a total of \textbf{958} numbers.
+
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Second end
+\pagebreak
+% Third start
+\paragraph*{3.} Consider a number line consisting of all positive integers greater than 7.  A hole punch traverses the number line, starting from 7 and working its way up.  It checks each positive integer n and punches it if and only if $\binom{n}{7}$ is divisible by 12.  As the hole punch checks more and more numbers, the fraction of checked numbers that are punched approaches a limiting number $\rho$.  If $\rho$ can be written in the form $\frac{m}{n}$, where m and n are positive integers, find $m+n$.
+
+\bigskip
+\textbf{Sol.}
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Third end
+
+% Fourth start
+\paragraph*{4.} Call a lattice point “visible” if the greatest common divisor of its coordinates is 1.  Prove that there exists a 100×100 square on the board none of whose points are visible.
+
+\bigskip
+\textbf{Sol.}
+\par\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\smallskip
+% Fourth end
+
+\end{document}
