@@ -11,7 +11,10 @@ This week was about prime and primality test. Got to know about an interesting a
 
 ---
 
-
 ## Week 3
 This week was about Congruences and Chinese Remainder Theorem. Difficult week, didn't understood 3<sup>rd</sup> and 4<sup>th</sup> problem of the assignment.
 
+---
+
+## Week 4
+This was the last week of the project. Explored how RSA encryption works. Read about [Miller-Rabin Primality Test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) and some [Group Theory](https://therenegadecoder.com/code/understanding-the-number-theory-behind-rsa-encryption/). Implemented the RSA Encryption from scratch this week as an exercise in Haskell.
